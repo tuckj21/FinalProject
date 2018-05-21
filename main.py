@@ -35,28 +35,13 @@ c.append(["Brute", 6, 2, 0, 0])
 c.append(["Chevalier", 6, 0, 2, 0])
 c.append(["Zealot", 6, 0, 0, 2])
 
-#tmap.tilePrint()
 stepcount = 0.
 testcount = 10
 
-#dtemp = ["left", "up", "right", "down"]
-#shift = random.randint(0, 3)
-
-#darray = []
-
-#for x in range(len(dtemp)):
-    #darray.append(dtemp[(x+shift) % 4])
-
 
 for x in range(testcount):
-    #print("Test", x)
-    #stepcount += s.solveQRS(copy.deepcopy(tmap), 1000000, h.generateHeroRandom(1, r, c))
     s.solveQRS(copy.deepcopy(tmap), 1000000, h.generateHeroRandom(1, r, c))
     input()
     os.system("cls")
-
-#print(stepcount / testcount)
-
-#tmap.tilePrint()
 
 input("Press enter to continue")
