@@ -1,10 +1,14 @@
+#solve.py
+#Jordan Tuck
+
 import Tile as t
 
 import random
 import copy
 import time
 
-
+#turns strings into small arrays to shift the direction of movement
+#movement is stored as strings to easily print
 def dirShift(d):
     if(d == "left"):
         return [-1, 0]
@@ -64,8 +68,8 @@ def quadTileFind(t, px, py, da, trail, limit):
 
 #quick recursive search
 def solveQRS(tmap, step_range, hero):
-    ##pos_x, pos_y = position of mouse
-    ##dir_x, dir_y = direction of mouse
+    ##pos_x, pos_y = position of hero
+    ##dir_x, dir_y = direction of hero
     pos_x = tmap.entx
     pos_y = tmap.enty
     path = []

@@ -1,3 +1,6 @@
+#Hero.py
+#Jordan Tuck
+#this is mostly for my own fun
 import random
 import string
 
@@ -16,6 +19,7 @@ class Hero:
         self.health_base = h
         self.health_max = (h+h*l) // 2
         self.health_curr = (h+h*l) // 2
+        #direction array, their bias on where they'll go first
         self.dirarray = d
 
     def __str__(self):
@@ -26,9 +30,13 @@ class Hero:
 
 def generateName(r, c):
     v = ["a", "e", "i", "o", "u"]
-    add = ["b", "d", "m", "r"]
+    #letters to throw in throughout the name
+    add = ["b", "d", "m", "r", "t"]
+    #end to a name
     end = ["a", "c", "d", "e", "k", "x", "z"]
-    
+
+    #each L is a structured piece to a name
+    #most names only use four letters
     l_one = "t"
     l_two = "e"
     l_three = "s"

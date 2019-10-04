@@ -1,10 +1,9 @@
-###Jordan Tuck
-###Senior Project
-###CS 491
+#Tile.py
+#Jordan Tuck
 
-###Program for generating a maze
+#Program for generating a maze
 
-###Simple object that holds a few IDs and traits
+#Simple object that holds a few IDs and traits
     
 class Tile:
     state = 0
@@ -19,7 +18,7 @@ class Tile:
         self.health = health
         self.dmg = dmg
         
-###More complex object that houses both lots of tiles and info
+#More complex object that houses both lots of tiles and info
 class TileMap:
 
     ##x, y = dimensions of the maze 
@@ -33,8 +32,8 @@ class TileMap:
 
     ##object creation
     ##i, j = input of x, y
-    ##en_x, en_y = imput of ent
-    ##ex_x, ex_y = imput of exit
+    ##en_x, en_y = input of ent
+    ##ex_x, ex_y = input of exit
     def __init__(self, i, j, en_x, en_y, ex_x, ex_y):
         if(i > 4):
             self.x = i
@@ -78,10 +77,7 @@ class TileMap:
                 
                 t = self.tarray[n][m]
                 
-                ####i miss switch cases
-                ####granted, could make it myself but whatever
-                
-                ###Prints out based off of state of character and if it's been stepped on
+                ##Prints out based off of state of character and if it's been stepped on
 
                 ## Open Area
                 if (t.state == 0):
@@ -115,7 +111,8 @@ class TileMap:
             printout += parray + "\n"
         print(printout)
 
-            
+    ##reads file for maze generation
+        ##to add: let readFile take any file location
     def readFile(self):
         with open("TileSet.txt") as file:
             ta = [line.rstrip() for line in file]
@@ -131,27 +128,28 @@ class TileMap:
                         self.tarray[n][m].mark = 1
                     elif(char == '#'):
                         self.tarray[n][m].state = 1
+                        ##entrance
                     elif(char == '('):
                         self.tarray[n][m].state = 2
                         self.entx = m
                         self.enty = n
+                        ##exit
                     elif(char == ')'):
                         self.tarray[n][m].state = 3
                         self.exitx = m
                         self.exity = n
+                        ##traps
                     elif(char == '*'):
                         self.tarray[n][m].state = 7
                         self.tarray[n][m].health = 10
                         self.tarray[n][m].dmg = 10
-                    elif(char == '#'):
-                        self.tarray[n][m].state = 8
-                        self.tarray[n][m].health = 10
-                        self.tarray[n][m].dmg = 10
+                    #elif(char == '#'):
+                        #self.tarray[n][m].state = 8
+                        #self.tarray[n][m].health = 10
+                        #self.tarray[n][m].dmg = 10
                     elif(char == 'T'):
                         self.tarray[n][m].state = 9
                         self.tarray[n][m].health = 10
                         self.tarray[n][m].dmg = 10
                     m += 1
                 n += 1
-
-###Simple function for shifting the direction of maze solvers
